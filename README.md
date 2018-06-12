@@ -1,16 +1,10 @@
-[![npm version](https://badge.fury.io/js/postcss-increase-specificity.svg)](http://badge.fury.io/js/postcss-increase-specificity) [![Build Status](https://travis-ci.org/MadLittleMods/postcss-increase-specificity.svg)](https://travis-ci.org/MadLittleMods/postcss-increase-specificity)
+# PostCSS Specificity
 
-# PostCSS Increase Specificity
-
-[PostCSS](https://github.com/postcss/postcss) plugin to increase the specificity of your selectors.
-
-[Why?](#why-my-use-case) Dealing with CSS you can't remove(mainly from a 3rd party), [see the why section](#why-my-use-case).
-
-### [Changelog](https://github.com/MadLittleMods/postcss-increase-specificity/blob/master/CHANGELOG.md)
+Originally forked from [postcss-increase-specificity](https://github.com/MadLittleMods/postcss-increase-specificity)- to increase the specificity of your selectors.
 
 ### Install
 
-`npm install postcss-increase-specificity --save-dev`
+`npm install postcss-specificity --save-dev`
 
 # Usage
 
@@ -18,13 +12,13 @@
 
 ```js
 var postcss = require('postcss');
-var increaseSpecificity = require('postcss-increase-specificity');
+var increaseSpecificity = require('postcss-specificity');
 
 var fs = require('fs');
 
 var mycss = fs.readFileSync('input.css', 'utf8');
 
-// Process your CSS with postcss-increase-specificity
+// Process your CSS with postcss-specificity
 var output = postcss([
         increaseSpecificity(/*options*/)
     ])
@@ -98,14 +92,14 @@ html:not(#\9):not(#\9):not(#\9) {
 
 There are two ways handle this. If the majority of your CSS needs to increase specificity, then you can leverage inline comments to disable/enable blocks of rules.
 
-To temporarily disable `postcss-increase-specificity`, use block comments in the following format:
+To temporarily disable `postcss-specificity`, use block comments in the following format:
 
 ```css
-/* postcss-increase-specificity disable */
+/* postcss-specificity disable */
 .foo {
   content: 'cant touch this';
 }
-/* postcss-increase-specificity enable */
+/* postcss-specificity enable */
 
 .bar {
   content: 'but i can!';
@@ -118,13 +112,13 @@ Otherwise, [`postcss-plugin-context`](https://github.com/postcss/postcss-plugin-
 ```js
 var postcss = require('postcss');
 var context = require('postcss-plugin-context');
-var increaseSpecificity = require('postcss-increase-specificity');
+var increaseSpecificity = require('postcss-specificity');
 
 var fs = require('fs');
 
 var mycss = fs.readFileSync('input.css', 'utf8');
 
-// Process your CSS with postcss-increase-specificity
+// Process your CSS with postcss-specificity
 var output = postcss([
 		context({
 	        increaseSpecificity: increaseSpecificity(/*options*/)
@@ -169,21 +163,10 @@ p {
 }
 ```
 
-
-# Why? *(my use case)*
-
-I had to use a 3rd party form-creation/data-aggregation service required by the client. The form is embedded in the website, via script tag, which unrolls an iframe with the form. The goal was to make the form match the rest of the site.
-
-The 3rd party form creation service *did* have an option for custom CSS, but you had to work around their existing layout and theme styles. Unfortunately, there was no blank(unstyled) theme to start from and you could not add any of your own selectors. Another problem was that they used really specific selectors and also some `!important` declarations.
-
-This meant I had to make my own selectors have a lot more specificity in order for my styles to have any effect. I wanted to write relatively clean CSS and still be able to overcome their styles automagically, so I created this plugin, `postcss-increase-specificity`.
-
-
 # What it does? *(by default)*
 
  - Prepend a descendant selector piece: `:not(#\9)` repeated the specified, `options.repeat`, number of times.
  - Add `!important` declarations to any selectors that have to do with an id.
-
 
 
 # Options
@@ -198,7 +181,5 @@ This meant I had to make my own selectors have a lot more specificity in order f
 
 
 # Tests
-
-We have a suite of Mocha tests.
 
 `npm test`

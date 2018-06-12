@@ -2,7 +2,7 @@
 	background: #f00;
 }
 
-/* postcss-increase-specificity disable */
+/* postcss-specificity disable */
 .bar {
 	color: #ef0;
 }

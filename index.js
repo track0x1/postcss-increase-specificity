@@ -1,4 +1,4 @@
-// postcss-increase-specificity v0.2.2
+// postcss-specificity v0.2.2
 
 var postcss = require('postcss');
 var objectAssign = require('object-assign');
@@ -7,8 +7,8 @@ require('string.prototype.repeat');
 
 var CSS_ESCAPED_TAB = '\\9';
 
-var DISABLE_PLUGIN_RE = /postcss-increase-specificity disable/;
-var ENABLE_PLUGIN_RE = /postcss-increase-specificity enable/;
+var DISABLE_PLUGIN_RE = /postcss-specificity disable/;
+var ENABLE_PLUGIN_RE = /postcss-specificity enable/;
 
 function increaseSpecifityOfRule(rule, opts) {
 	rule.selectors = rule.selectors.map(function(selector) {
@@ -63,7 +63,7 @@ function checkForEnableDisableComments(node) {
 }
 
 // Plugin that adds `:not(#\\9)` selectors to the front of the rule thus increasing specificity
-module.exports = postcss.plugin('postcss-increase-specificity', function(options) {
+module.exports = postcss.plugin('postcss-specificity', function(options) {
 	var defaults = {
 		// The number of times `:not(#\\9)` is appended in front of the selector
 		repeat: 3,

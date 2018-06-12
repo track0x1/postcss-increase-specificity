@@ -1,9 +1,9 @@
-/* postcss-increase-specificity disable */
+/* postcss-specificity disable */
 /* Some other comment you picked up instead of the one above */
 .foo {
 	background: #f00;
 }
-/* postcss-increase-specificity enable */
+/* postcss-specificity enable */
 
 .bar {
 	color: #ef0;

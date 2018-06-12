@@ -1,15 +1,15 @@
-/* postcss-increase-specificity disable */
+/* postcss-specificity disable */
 .noop {
 	background: #f00;
 }
-/* postcss-increase-specificity enable */
+/* postcss-specificity enable */
 
 .bar {
 	color: #ef0;
 }
 
-/* postcss-increase-specificity disable */
+/* postcss-specificity disable */
 .noop2 {
 	background: #f00;
 }
-/* postcss-increase-specificity enable */
+/* postcss-specificity enable */

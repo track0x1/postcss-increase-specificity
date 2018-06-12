@@ -47,7 +47,7 @@ function testPlugin(filePath, expectedFilePath, options) {
 }
 
 
-describe('postcss-increase-specificity', function() {
+describe('postcss-specificity', function() {
 	it('should work with classes `.foo`', function() {
 		return testPlugin('./test/fixtures/classes.css', './test/fixtures/classes.expected.css');
 	});

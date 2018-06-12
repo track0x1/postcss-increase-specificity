@@ -1,11 +1,11 @@
-/* postcss-increase-specificity disable */
+/* postcss-specificity disable */
 
 my-decl: 'wo';
 
 .foo {
 	background: #f00;
 }
-/* postcss-increase-specificity enable */
+/* postcss-specificity enable */
 
 .bar {
 	color: #ef0;
