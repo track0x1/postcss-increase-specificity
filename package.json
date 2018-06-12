@@ -1,6 +1,6 @@
 {
   "name": "postcss-specificity",
-  "version": "0.6.0",
+  "version": "1.0.0",
   "description": "PostCSS plugin to increase the specificity of your selectors",
   "keywords": [
     "postcss",
